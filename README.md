@@ -1,6 +1,6 @@
 # Eisenhower Matrix Email Classifier
 
-Ordnet eine Liste von E-Mails mit Claude den vier Eisenhower-Quadranten zu und erzeugt einen farbcodierten HTML-Prioritätsreport.
+Ordnet eine Liste von E-Mails mit Claude den vier Eisenhower-Quadranten zu (Listenrepräsentation is am übersichtlichsten) und erzeugt einen farbcodierten HTML-Prioritätsreport.
 
 ## Setup
 
@@ -47,10 +47,6 @@ python classify.py --lang de                # Sprache des Reports (de/en)
 - 🔵 **Einplanen** — JV Term Sheet vor dem Montagstermin prüfen (nicht dringend + wichtig)
 - ⚫ **Eliminieren** — wöchentlicher Marktnewsletter (keine Aktion nötig)
 
-## Sprache
-
-Über `--lang de` oder `--lang en` lässt sich steuern, in welcher Sprache der Report und die Begründungen ausgegeben werden. Standard ist Deutsch.
-
 ## Von 70% auf 95% Trefferquote
 
 Gelabeltes Testset (~50 E-Mails) mit den schwierigen Fällen aufbauen: gemischte Dringlichkeit, Multi-Thema-Threads, "klingt dringend, ist aber unwichtig". Classifier drüberlaufen lassen, jede Fehlklassifikation von Hand prüfen, vage Prompt-Definitionen nachschärfen und gezielte Few-Shot-Beispiele ergänzen. Zwei bis drei Durchläufe schliessen den grössten Teil der Lücke; das Parsen ist dank JSON-Output schon zuverlässig.
@@ -60,3 +56,4 @@ Gelabeltes Testset (~50 E-Mails) mit den schwierigen Fällen aufbauen: gemischte
 - **Batching**: Mehrere E-Mails pro API-Call → tiefere Kosten und Latenz.
 - **Konfidenz**: Grenzfälle mit Konfidenzwert markieren.
 - **Filter**: Report auf einzelne Quadranten beschränkbar.
+- **Sprache**: Z.B. `--lang de` oder `--lang en`
